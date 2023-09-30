@@ -1,6 +1,6 @@
 ---
 title: "Gov 50 Final Project"
-author: "Your Name Here"
+author: "Emma Lucas"
 description: "My final project"
 output:
   distill::distill_article:
@@ -11,4 +11,4 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data related to the UK's cost of living crisis. I would have to think about whether this would be in terms of the food shortage, energy shortage, housing crisis, etc. (or potentially touch on various aspects of the crisis.)
