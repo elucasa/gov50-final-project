@@ -14,3 +14,22 @@ output:
 I am interested in exploring data related to domestic terrorism and violence.
 
 How does the ideological orientation of domestic terrorist perpetrators influence, if at all, the type of political violence and the selectivity of said violence? In this study, I aim to examine whether or not certain types and selectivities of terrorist violence can indicate patterns and trends within specific ideologies. I hypothesise that less extreme ideologies will have less organised and wide-scale types of violence and that they will be less selective in their attacks. Less extreme ideologies, while still passionate about their causes, are less likely to take greater steps to ensure their causes. The more the ideology deviates from the norm, the more inclined terrorist organisations are to act out to bring attention to their cause. I also predict that less extreme ideologies will be smaller-scaled in terms of selectivity whereas more extreme ideologies will be larger-scaled. My explanatory variable of interest is what ideology the terrorist group aligns with. In the dataset, Ideology represents the ideological orientation of the perpetrators, an adaptation of Sánchez-Cuenca and De la Calle (2009), ranging from Vigilante, Nationalist, Extreme-left, Extreme-right, and Neonazi. Ideology is a codified variable, with each view corresponding to a number 0-4. My outcome variables of interests are ViolenceType and Selectivity. Violencetype represents three forms of political violence: urban political violence, diffuse terrorism, and organised terrorism. This variable is also codified from 0-2. Urban political violence refers to non-planned, often gang-related incidents of violence. Diffuse terrorism refers to smaller-scale organisational killings. Organised terrorism refers to planned attacks carried out by organised groups. Finally, Selectivity represents the degree of selectivity of domestic terrorist attacks. Attacks are classified by 1) Individual (selective) killings, 2) State killing (security forces and State officials), 3) group killing (social traits), 4) Society killing, 5) Collateral killing, or 6) Mistake. If I observe greater numbers of ViolenceType 0-1 and Selectivity 1-3 and 6 in less extreme ideologies, this will provide support for my hypothesis. If I observe greater numbers of ViolenceType 1-2 and Selectivity 3-5 in more extreme ideologies, this will also provide support for my hypothesis. This would be disproved if ViolenceType and Selectivity did not vary across ideology and rather were randomised. This study would study patterns rather than determine causal effects.
+
+```{r}
+install.packages("distill")
+install.packages("haven")
+library(distill)
+library(haven)
+library(tidyverse)
+
+DTV_1_2009_1 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
+
+library(ggplot2)
+
+DTV_1_2009_1 |>
+  ggplot(aes(x = ideology)) +
+  geom_bar() +
+  labs(title = "Count of Terrorist Group's Ideology ", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Count")
+
+
+```
