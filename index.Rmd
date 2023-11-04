@@ -31,5 +31,7 @@ DTV_1_2009_1 |>
   geom_bar() +
   labs(title = "Count of Terrorist Group's Ideology ", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Count")
 
+DTV_1_2009_1
+
 
 ```
