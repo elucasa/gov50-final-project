@@ -26,12 +26,13 @@ DTV_1_2009_1 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
 
 library(ggplot2)
 
-DTV_1_2009_1 |>
+plot <-
+  DTV_1_2009_1 |>
   ggplot(aes(x = ideology)) +
   geom_bar() +
   labs(title = "Count of Terrorist Group's Ideology ", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Count")
 
-DTV_1_2009_1
+plot
 
 
 ```
