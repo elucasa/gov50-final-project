@@ -25,15 +25,30 @@ library(tidyverse)
 
 DTV_1_2009_1 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
 
+DTV_1_2009_2 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
+
+DTV_1_2009_3 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
+
 library(ggplot2)
 
-plot <-
-  DTV_1_2009_1 |>
+DTV_1_2009_1 |>
   ggplot(aes(x = ideology)) +
   geom_bar() +
   labs(title = "Count of Terrorist Group's Ideology ", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Count")
 
-plot
+DTV_1_2009_2 |>
+  ggplot(aes(x = ideology, y = violencetype))  + labs(title = "Violence Types Across Ideology", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Violence Type") + geom_jitter()
+
+DTV_1_2009_3 |>
+  ggplot(aes(x = ideology, y = selectivity))  + labs(title = "Selectivity Across Ideology", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Selectivity") + geom_jitter()
 
 
 ```
+
+# Analysis
+
+As seen from the first graph, there are almost triple the number of terrorist groups with Ideology 1 (Nationalist(pro-secession)) compared to the second largest pool of terrorist groups, Ideology 0 (Vigilante (against secession)). From greatest to least with the remaining groups, Ideology 3 (Extreme-right), Ideology 2 (Extreme-left), and Ideology 4 (Neonazi) are a bit less than half that of ideology 0.
+
+In the second graph, we see the largest concentration of attacks around Ideology 1 and Violence Type 2 (Organized Terrorism). We also see a large concentration of attacks around Ideology 0 and Violence Type 2. When looking across the horizontal axis, it can be said that Violence Type 2 is the most concentrated overall, regardless of ideology. Besides Ideology 4 and Violence Type 1 (Diffuse terrorism), there is not a dense concentration of attacks. Ideology 0 and Violence Type 1 have no points, nor does Ideology 4 and Violence Type 2.
+
+When comparing this to the third graph, which measures attack selectivity across ideology, we observe the largest concentration in Ideology 1 and Selectivity 2 (State killing (security forces and State officials)). The second largest concentration is in Ideology 0 and Selectivity 3 (Social group killing (social traits)). When looking across the horizontal axis, it is less clear what Selectivity is most concentrated, although upon observation it appears to be either Selectivity 2 or Selectivity 3. 
