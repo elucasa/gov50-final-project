@@ -7,13 +7,13 @@ output:
     self_contained: false
 ---
 
-## Introduction
+## Introduction: describe the research question and main hypothesis; describe why it is important. (1-2 paragraphs) (2pts)
 
 For my final project, I was interested in exploring data related to domestic terrorism, violence, and ideology. How does the ideological orientation of domestic terrorist perpetrators influence, if at all, the type of political violence and the selectivity of said violence? In this study, I examined whether or not certain types and selectivity of terrorist violence can indicate patterns and trends within specific ideologies. 
 
 I hypothesise that less extreme ideologies will have less organised and wide-scale types of violence and that they will be less selective in their attacks. Less extreme ideologies, while still passionate about their causes, are less likely to take greater steps to ensure their causes. The more the ideology deviates from the norm, the more inclined terrorist organisations are to act out to bring attention to their cause. I also predict that less extreme ideologies will be smaller-scaled in terms of selectivity whereas more extreme ideologies will be larger-scaled. My explanatory variable of interest is what ideology the terrorist group aligns with. 
 
-## Data Section
+## Data Section: 2-3 paragraphs + plot visualizing main outcome of interest. (3pts)
 
 The dataset currently holds information on all terrorist attacks from 1965 to 2005 carried out by domestic terrorist organizations in European nations. Each data point represents an individually killed as a directly result of the terrorist attack. To gather the data, researchers relied on pre-existing datasets of terrorist killings (mainly TWEED and Global Terrorism Database), as well as information from NGOs, websites dedicated in memory to victims, local and state news reports, annual government reports, and sometimes even reports from terrorist organisations themselves. These sources were cross-referenced, and the researchers acknowledge that this could give way to issues of under-reporting.
 
@@ -22,6 +22,8 @@ My research is cross-sectional, as it uses data from a particular point in time 
 In the dataset, Ideology represents the ideological orientation of the perpetrators, an adaptation of Sánchez-Cuenca and De la Calle (2009), ranging from Vigilante (0), Nationalist (1), Extreme-left (2), Extreme-right (3), and Neonazi (4). Ideology is a codified variable, with each view corresponding to a number 0-4. My outcome variables of interests are ViolenceType and Selectivity. Violencetype represents three forms of political violence: urban political violence (0), diffuse terrorism (1), and organised terrorism (2). This variable is also codified from 0-2. Urban political violence refers to non-planned, often gang-related incidents of violence. Diffuse terrorism refers to smaller-scale organisational killings. Organised terrorism refers to planned attacks carried out by organised groups. Finally, Selectivity represents the degree of selectivity of domestic terrorist attacks. Attacks are classified by Individual (selective) killings (1), State killing (security forces and State officials) (2), group killing (social traits) (3), Society killing (4), Collateral killing (5), or Mistake (6). 
 
 If I observe greater numbers of ViolenceType 0-1 and Selectivity 1-3 and 6 in less extreme ideologies, this will provide support for my hypothesis. If I observe greater numbers of ViolenceType 1-2 and Selectivity 3-5 in more extreme ideologies, this will also provide support for my hypothesis. This would be disproved if ViolenceType and Selectivity did not vary across ideology and rather were randomised.
+
+## Results: plot of main analysis + regression output + 2-3 paragraphs of description and interpretation of the plots and regression (including interpreting the main coefficient of interest and describing if it is statistically significant and if we should interpret it causally). This section could be longer if you choose to include additional analyses. (8pts)
 
 ```{r}
 
@@ -81,11 +83,8 @@ modelsummary::modelsummary(regression,
 
 ```
 
-
-## Conclusion
-
-A brief (one paragraph) concluding section that summarizes your results, assesses the extent to which you find support for your hypothesis, describes limitations of your analysis and threats to inference, and states how your analysis could be improved (e.g., improved data that would be useful to collect).
-
 As seen from the first graph, there are almost triple the number of terrorist groups with Ideology 1 (Nationalist(pro-secession)) compared to the second largest pool of terrorist groups, Ideology 0 (Vigilante (against secession)). From greatest to least with the remaining groups, Ideology 3 (Extreme-right), Ideology 2 (Extreme-left), and Ideology 4 (Neonazi) are a bit less than half that of ideology 0. In the second graph, we see the largest concentration of attacks around Ideology 1 and Violence Type 2 (Organized Terrorism). We also see a large concentration of attacks around Ideology 0 and Violence Type 2. When looking across the horizontal axis, it can be said that Violence Type 2 is the most concentrated overall, regardless of ideology. Besides Ideology 4 and Violence Type 1 (Diffuse terrorism), there is not a dense concentration of attacks. Ideology 0 and Violence Type 1 have no points, nor does Ideology 4 and Violence Type 2. When comparing this to the third graph, which measures attack selectivity across ideology, we observe the largest concentration in Ideology 1 and Selectivity 2 (State killing (security forces and State officials)). The second largest concentration is in Ideology 0 and Selectivity 3 (Social group killing (social traits)). When looking across the horizontal axis, it is less clear what Selectivity is most concentrated, although upon observation it appears to be either Selectivity 2 or Selectivity 3. 
+
+## Conclusion: 1 paragraph (i) summarizing results and assessing the extent to which you find support for your hypothesis; (ii) describing limitations of the analysis and threats to inference (missing data, confounding, etc), and stating how you could improve your analysis if you had more time/money. (2pts)
 
 A major limitation of my analysis is that correlation does not imply causation. Since this was not a randomised control trial (and rather mimics an observational study,) it is hard to say whether ideology is the direct cause of certain violence types and selectivity. In observational studies, researchers observe a naturally assigned treatment, and it is very commonly the case that you often cannot randomise them for ethical and logistical reasons. This raises questions of internal validity, which addresses if causal assumptions are satisfied and if we can interpret this as a causal effect. RCTs usually have higher internal validity, and observational studies have less because the treatment/control groups differ in ways that are hard to measure.
