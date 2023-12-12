@@ -41,6 +41,8 @@ DTV_1_2009_3 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
 
 library(ggplot2)
 
+DTV_1_2009_3
+
 DTV_1_2009_1 |>
   ggplot(aes(x = ideology)) +
   geom_bar() +
@@ -82,10 +84,10 @@ modelsummary::modelsummary(regression,
 ```
 
 
-# Analysis
+## Conclusion
 
-As seen from the first graph, there are almost triple the number of terrorist groups with Ideology 1 (Nationalist(pro-secession)) compared to the second largest pool of terrorist groups, Ideology 0 (Vigilante (against secession)). From greatest to least with the remaining groups, Ideology 3 (Extreme-right), Ideology 2 (Extreme-left), and Ideology 4 (Neonazi) are a bit less than half that of ideology 0.
+A brief (one paragraph) concluding section that summarizes your results, assesses the extent to which you find support for your hypothesis, describes limitations of your analysis and threats to inference, and states how your analysis could be improved (e.g., improved data that would be useful to collect).
 
-In the second graph, we see the largest concentration of attacks around Ideology 1 and Violence Type 2 (Organized Terrorism). We also see a large concentration of attacks around Ideology 0 and Violence Type 2. When looking across the horizontal axis, it can be said that Violence Type 2 is the most concentrated overall, regardless of ideology. Besides Ideology 4 and Violence Type 1 (Diffuse terrorism), there is not a dense concentration of attacks. Ideology 0 and Violence Type 1 have no points, nor does Ideology 4 and Violence Type 2.
+As seen from the first graph, there are almost triple the number of terrorist groups with Ideology 1 (Nationalist(pro-secession)) compared to the second largest pool of terrorist groups, Ideology 0 (Vigilante (against secession)). From greatest to least with the remaining groups, Ideology 3 (Extreme-right), Ideology 2 (Extreme-left), and Ideology 4 (Neonazi) are a bit less than half that of ideology 0. In the second graph, we see the largest concentration of attacks around Ideology 1 and Violence Type 2 (Organized Terrorism). We also see a large concentration of attacks around Ideology 0 and Violence Type 2. When looking across the horizontal axis, it can be said that Violence Type 2 is the most concentrated overall, regardless of ideology. Besides Ideology 4 and Violence Type 1 (Diffuse terrorism), there is not a dense concentration of attacks. Ideology 0 and Violence Type 1 have no points, nor does Ideology 4 and Violence Type 2. When comparing this to the third graph, which measures attack selectivity across ideology, we observe the largest concentration in Ideology 1 and Selectivity 2 (State killing (security forces and State officials)). The second largest concentration is in Ideology 0 and Selectivity 3 (Social group killing (social traits)). When looking across the horizontal axis, it is less clear what Selectivity is most concentrated, although upon observation it appears to be either Selectivity 2 or Selectivity 3. 
 
-When comparing this to the third graph, which measures attack selectivity across ideology, we observe the largest concentration in Ideology 1 and Selectivity 2 (State killing (security forces and State officials)). The second largest concentration is in Ideology 0 and Selectivity 3 (Social group killing (social traits)). When looking across the horizontal axis, it is less clear what Selectivity is most concentrated, although upon observation it appears to be either Selectivity 2 or Selectivity 3. 
+A major limitation of my analysis is that correlation does not imply causation. Since this was not a randomised control trial (and rather mimics an observational study,) it is hard to say whether ideology is the direct cause of certain violence types and selectivity. In observational studies, researchers observe a naturally assigned treatment, and it is very commonly the case that you often cannot randomise them for ethical and logistical reasons. This raises questions of internal validity, which addresses if causal assumptions are satisfied and if we can interpret this as a causal effect. RCTs usually have higher internal validity, and observational studies have less because the treatment/control groups differ in ways that are hard to measure.
