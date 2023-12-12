@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
 author: "Emma Lucas"
-description: "My final project"
+description: "Terrorist Ideology, Violence Type, and Selectivity"
 output:
   distill::distill_article:
     self_contained: false
