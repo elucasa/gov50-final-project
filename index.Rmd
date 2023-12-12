@@ -23,8 +23,6 @@ In the dataset, Ideology represents the ideological orientation of the perpetrat
 
 If I observe greater numbers of ViolenceType 0-1 and Selectivity 1-3 and 6 in less extreme ideologies, this will provide support for my hypothesis. If I observe greater numbers of ViolenceType 1-2 and Selectivity 3-5 in more extreme ideologies, this will also provide support for my hypothesis. This would be disproved if ViolenceType and Selectivity did not vary across ideology and rather were randomised.
 
-## Results: plot of main analysis + regression output + 2-3 paragraphs of description and interpretation of the plots and regression (including interpreting the main coefficient of interest and describing if it is statistically significant and if we should interpret it causally). This section could be longer if you choose to include additional analyses. (8pts)
-
 ```{r}
 
 #install.packages("distill")
@@ -32,31 +30,33 @@ If I observe greater numbers of ViolenceType 0-1 and Selectivity 1-3 and 6 in le
 library(distill)
 library(haven)
 library(tidyverse)
-
-DTV_1_2009_1 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
-
-DTV_1_2009_2 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
-
-DTV_1_2009_3 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
-
 library(ggplot2)
 
-DTV_1_2009_3
+DTV_1_2009_1 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
+DTV_1_2009_2 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
+DTV_1_2009_3 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
 
 DTV_1_2009_1 |>
-  ggplot(aes(x = ideology)) +
+  ggplot(aes(x = violencetype)) +
   geom_bar() +
-  labs(title = "Count of Terrorist Group's Ideology ", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Count")
+  labs(title = "Count of Terrorist Organisation Attack Violence Type ", x = "Violence Type [Urban political violence (0), diffuse terrorism (1), and organised terrorism (2)]", y = "Count")
+
+DTV_1_2009_1 |>
+  ggplot(aes(x = selectivity)) +
+  geom_bar() +
+  labs(title = "Count of Terrorist Organisation Attack Selectivity ", x = "Selectivity", y = "Count")
+
+```
+
+## Results: plot of main analysis + regression output + 2-3 paragraphs of description and interpretation of the plots and regression (including interpreting the main coefficient of interest and describing if it is statistically significant and if we should interpret it causally). This section could be longer if you choose to include additional analyses. (8pts)
+
+```{r}
 
 DTV_1_2009_2 |>
   ggplot(aes(x = ideology, y = violencetype))  + labs(title = "Violence Types Across Ideology", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Violence Type") + geom_jitter(alpha = 0.25)
 
 DTV_1_2009_3 |>
   ggplot(aes(x = ideology, y = selectivity))  + labs(title = "Selectivity Across Ideology", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Selectivity") + geom_jitter(alpha = 0.25)
-
-```
-
-```{r}
 
 ggplot(DTV_1_2009_1, aes(x = ideology, y = violencetype)) +
   geom_jitter(alpha = 0.25) +
@@ -68,22 +68,21 @@ ggplot(DTV_1_2009_1, aes(x = ideology, y = violencetype)) +
   stat_summary_bin(fun = "mean", color = "indianred1", size = 3,
                    geom = "point", binwidth = 1)
 
-```
-
-
-```{r}
-
 regression <- lm(ideology ~ selectivity + violencetype,
                data = DTV_1_2009_1)
-
 modelsummary::modelsummary(regression,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
 
-```
 
-As seen from the first graph, there are almost triple the number of terrorist groups with Ideology 1 (Nationalist(pro-secession)) compared to the second largest pool of terrorist groups, Ideology 0 (Vigilante (against secession)). From greatest to least with the remaining groups, Ideology 3 (Extreme-right), Ideology 2 (Extreme-left), and Ideology 4 (Neonazi) are a bit less than half that of ideology 0. In the second graph, we see the largest concentration of attacks around Ideology 1 and Violence Type 2 (Organized Terrorism). We also see a large concentration of attacks around Ideology 0 and Violence Type 2. When looking across the horizontal axis, it can be said that Violence Type 2 is the most concentrated overall, regardless of ideology. Besides Ideology 4 and Violence Type 1 (Diffuse terrorism), there is not a dense concentration of attacks. Ideology 0 and Violence Type 1 have no points, nor does Ideology 4 and Violence Type 2. When comparing this to the third graph, which measures attack selectivity across ideology, we observe the largest concentration in Ideology 1 and Selectivity 2 (State killing (security forces and State officials)). The second largest concentration is in Ideology 0 and Selectivity 3 (Social group killing (social traits)). When looking across the horizontal axis, it is less clear what Selectivity is most concentrated, although upon observation it appears to be either Selectivity 2 or Selectivity 3. 
+
+```
+#As seen from the "Violence Types Across Ideology" graph, there are almost triple the number of terrorist groups with Ideology 1 (Nationalist(pro-secession)) compared to the second largest pool of terrorist groups, Ideology 0 (Vigilante (against secession)). From greatest to least with the remaining groups, Ideology 3 (Extreme-right), Ideology 2 (Extreme-left), and Ideology 4 (Neonazi) are a bit less than half that of ideology 0. 
+
+As seen from the "Violence Types Across Ideology" graph, we see the largest concentration of attacks around Ideology 1 (Nationalist) and Violence Type 2 (organized terrorism). We also see a large concentration of attacks around Ideology 0 (Vigilante) and Violence Type 2 (organised terrorism). When looking across the horizontal axis, it can be said that Violence Type 2 (organised terrorism) is the most concentrated overall compared to Violence Type 0 (urban political violence) and 1 (diffuse terrorism), regardless of ideology. Besides Ideology 4 (neonazi) and Violence Type 1 (diffuse terrorism), there is not a dense concentration of attacks in either Violence Type 0 (urban political violence) or Violence Type 1 (diffuse terrorism). Ideology 0 (Vigilante) and Violence Type 1 (diffuse terrorism) have no points, nor does Ideology 4 (Neonazi) and Violence Type 2 (organised terrorism). 
+
+When comparing this to the "Selectivity Across Ideology" graph, which measures attack selectivity across ideology, we observe the largest concentration in Ideology 1 (Nationalist) and Selectivity 2 (state killing). The second largest concentration is in Ideology 0 (Vigilante) and Selectivity 3 (group killing). When looking across the horizontal axis, it is less clear what Selectivity is most concentrated, although upon observation it appears to be either Selectivity 2 (state killing) or Selectivity 3 (group killing). 
 
 ## Conclusion: 1 paragraph (i) summarizing results and assessing the extent to which you find support for your hypothesis; (ii) describing limitations of the analysis and threats to inference (missing data, confounding, etc), and stating how you could improve your analysis if you had more time/money. (2pts)
 
