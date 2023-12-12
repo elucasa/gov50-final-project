@@ -11,7 +11,7 @@ output:
 
 For my final project, I was interested in exploring data related to domestic terrorism, violence, and ideology. How does the ideological orientation of domestic terrorist perpetrators influence, if at all, the type of political violence and the selectivity of said violence? In this study, I examined whether or not certain types and selectivity of terrorist violence can indicate patterns and trends within specific ideologies. 
 
-I hypothesise that less extreme ideologies will have less organised and less wide-scale types of violence and that they will be less selective in their attacks. Less extreme ideologies, while still passionate about their causes, are less likely to take greater steps to ensure their causes. The more the ideology deviates from the norm, the more inclined terrorist organisations are to act out to bring attention to their cause. I also predict that less extreme ideologies will be smaller-scaled in terms of selectivity whereas more extreme ideologies will be larger-scaled. My explanatory variable of interest is what ideology the terrorist group aligns with. 
+I hypothesise that less extreme ideologies will have less organised and less wide-scale types of violence and that they will be less selective in their attacks. Less extreme ideologies, while still passionate about their causes, are less likely to take greater steps to ensure their causes. The more the ideology deviates from the norm, the more inclined terrorist organisations are to act out to bring attention to their cause. I also predict that less extreme ideologies will be smaller-scaled in terms of selectivity whereas more extreme ideologies will be larger-scaled and more selective. Neonazis, for instance, will have a set of targeted groups they wish to insue violence on. My explanatory variable of interest is what ideology the terrorist group aligns with. 
 
 ## Data Section: 2-3 paragraphs + plot visualizing main outcome of interest. (3pts)
 
@@ -62,7 +62,7 @@ DTV_1_2009_3 |>
   ggplot(aes(x = ideology, y = selectivity))  + labs(title = "Selectivity Across Ideology", x = "Ideology (Vigilante, 0, to Neonazi, 4)", y = "Selectivity") + geom_jitter(alpha = 0.25)
 
 
-#Creation of Binary Varibles
+#Creation of Binary Variables
 
 DTV_1_2009_1 <- DTV_1_2009_1 |>
   mutate(neo = if_else(ideology == 4, "Neo Nazi", "Not Neo Nazi"))
