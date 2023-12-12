@@ -7,8 +7,6 @@ output:
     self_contained: false
 ---
 
-
-
 ## Introduction
 
 For my final project, I was interested in exploring data related to domestic terrorism, violence, and ideology. How does the ideological orientation of domestic terrorist perpetrators influence, if at all, the type of political violence and the selectivity of said violence? In this study, I examined whether or not certain types and selectivity of terrorist violence can indicate patterns and trends within specific ideologies. 
