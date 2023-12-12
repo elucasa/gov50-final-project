@@ -39,7 +39,7 @@ DTV_1_2009_3 <- read_sav("dataverse_files/DTV 1-2009_1.sav")
 DTV_1_2009_1 |>
   ggplot(aes(x = violencetype)) +
   geom_bar() +
-  labs(title = "Count of Terrorist Organisation Attack Violence Type ", x = "Violence Type [Urban political violence (0), diffuse terrorism (1), and organised terrorism (2)]", y = "Count")
+  labs(title = "Count of Terrorist Organisation Attack Violence Type ", x = "Violence Type", y = "Count")
 
 DTV_1_2009_1 |>
   ggplot(aes(x = selectivity)) +
